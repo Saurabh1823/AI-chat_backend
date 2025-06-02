@@ -1,0 +1,17 @@
+{
+  "builds": [
+    {
+      "src": "api/app.py",
+      "use": "@vercel/python",
+      "config": {
+        "buildCommand": "apt-get update && apt-get install -y tesseract-ocr libtesseract-dev && pip install -r requirements.txt"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "api/app.py"
+    }
+  ]
+}
